@@ -36,5 +36,3 @@ class Triangulo {
     return this.a !== this.b && this.b !== this.c && this.a !== this.c;
   }
 }
-
- false
