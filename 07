@@ -1,0 +1,34 @@
+class Equipamento {
+  ligado: boolean = false;
+
+  ligar(): void {
+    if (this.ligado) {
+      console.log("Equipamento já está ligado.");
+      return;
+    }
+    this.ligado = true;
+    console.log("Equipamento ligado.");
+  }
+
+  desligar(): void {
+    if (!this.ligado) {
+      console.log("Equipamento já está desligado.");
+      return;
+    }
+    this.ligado = false;
+    console.log("Equipamento desligado.");
+  }
+
+  inverter(): void {
+    if (this.ligado) {
+      this.desligar();
+    } else {
+      this.ligar();
+    }
+  }
+
+  estaLigado(): boolean {
+    return this.ligado;
+  }
+}
+
