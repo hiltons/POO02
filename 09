@@ -1,0 +1,6 @@
+Qual abordagem é mais correta?
+A abordagem da questão 8 (retornar true/false) é a mais correta. 
+Ela informa ao código chamador se a operação foi bem-sucedida ou não, permitindo que o programa tome decisões com base no resultado.
+ A abordagem de simplesmente ignorar a operação (questão 10 menciona "desconsiderar a alteração") é mais perigosa porque o erro passa silenciosamente, 
+sem aviso nenhum — o que dificulta muito o diagnóstico de bugs.
+mas entre as duas opções apresentadas, retornar boolean é claramente superior.
