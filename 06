@@ -1,0 +1,51 @@
+class Triangulo {
+  a: number;
+  b: number;
+  c: number;
+
+  constructor(a: number, b: number, c: number) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+  }
+
+  ehTriangulo(): boolean {
+    return (
+      Math.abs(this.b - this.c) < this.a && this.a < this.b + this.c &&
+      Math.abs(this.a - this.c) < this.b && this.b < this.a + this.c &&
+      Math.abs(this.a - this.b) < this.c && this.c < this.a + this.b
+    );
+  }
+
+  ehIsoceles(): boolean {
+    if (!this.ehTriangulo()) return false;
+    return (
+      (this.a === this.b && this.a !== this.c) ||
+      (this.a === this.c && this.a !== this.b) ||
+      (this.b === this.c && this.b !== this.a)
+    );
+  }
+
+  ehEquilatero(): boolean {
+    if (!this.ehTriangulo()) return false;
+    return this.a === this.b && this.b === this.c;
+  }
+
+  ehEscaleno(): boolean {
+    if (!this.ehTriangulo()) return false;
+    return this.a !== this.b && this.b !== this.c && this.a !== this.c;
+  }
+}
+
+// Testes
+const t1 = new Triangulo(3, 4, 5);   // Escaleno
+const t2 = new Triangulo(5, 5, 3);   // Isósceles
+const t3 = new Triangulo(4, 4, 4);   // Equilátero
+const t4 = new Triangulo(1, 2, 10);  // Não é triângulo
+
+console.log("T1 é triângulo?", t1.ehTriangulo());   // true
+console.log("T1 é escaleno?", t1.ehEscaleno());     // true
+console.log("T2 é isósceles?", t2.ehIsoceles());   // true
+console.log("T3 é equilátero?", t3.ehEquilatero()); // true
+console.log("T4 é triângulo?", t4.ehTriangulo());   // false
+console.log("T4 é escaleno?", t4.ehEscaleno());     // false
